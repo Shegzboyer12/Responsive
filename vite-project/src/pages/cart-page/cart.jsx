@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../component/header/header";
-import Image from "../../images/heading-bg.webp";
+import Image6 from "../../images/nightshade.jpg";
+import Image2 from "../../images/the_happy_lemon.jpg";
 import { Link } from "react-router-dom";
 import Footer from "../../component/footer/footer";
 
@@ -31,6 +32,41 @@ const Cart = () => {
           Start Shopping
         </Link>
       </div>
+
+      <div className="flex gap-9 items-center justify-center">
+          <div className="flex flex-col  items-center justify-center border border-emerald-800 w-72 h-[110%] rounded-md gap-2 shadow-xl">
+            <div
+              className="h-64 w-full bg-contain bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${Image2})` }}
+            >
+              <div className="ml-48 bg-red-600 w-10 h-8 rounded-sm flex items-center justify-center text-white font-semibold">
+                <span>X</span>
+              </div>
+            </div>
+            <p>the happy lemon</p>
+            <input type="number" className="border border-black rounded" />
+            <button className="bg-violet-500 h-11 w-40 rounded-md font-bold flex items-center justify-center hover:bg-violet-600 transition">
+              Add to cart
+            </button>
+          </div>
+
+          <div className="flex flex-col  items-center justify-center border border-emerald-800 w-72 h-[110%] rounded-md gap-2 shadow-xl">
+            <div
+              className="h-64 w-full bg-contain bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${Image6})` }}
+            >
+              <div className="ml-48 bg-red-600 w-10 h-8 rounded-sm flex items-center justify-center text-white font-semibold">
+                <span>X</span>
+              </div>
+            </div>
+            <p>nightshade</p>
+            <input type="number" className="border border-black rounded" />
+            <button className="bg-violet-500 h-11 w-40 rounded-md font-bold flex items-center justify-center hover:bg-violet-600 transition">
+              Add to cart
+            </button>
+          </div>
+
+          </div>
 
       <div className="p-8">
         <div className="w-full mx-auto p-6 flex flex-col items-center">
