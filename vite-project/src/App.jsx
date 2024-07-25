@@ -8,6 +8,8 @@ import Shop from "./pages/shop-page/shop";
 import Contact from "./pages/contact-page/contact";
 import Search from "./pages/search-page/search";
 import Cart from "./pages/cart-page/cart";
+import Order from "./pages/order-page/order";
+import Checkout from "./pages/checkout-page/checkout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/search" element={<Search />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </BrowserRouter>
     </>

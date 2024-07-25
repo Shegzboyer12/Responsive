@@ -1,9 +1,10 @@
 import React from "react";
 import Header from "../../component/header/header";
-import Image6 from "../../images/nightshade.jpg";
-import Image2 from "../../images/the_happy_lemon.jpg";
 import { Link } from "react-router-dom";
 import Footer from "../../component/footer/footer";
+import Image from "../../images/heading-bg.webp";
+import Image6 from "../../images/nightshade.jpg";
+import Image2 from "../../images/the_happy_lemon.jpg";
 
 const Cart = () => {
   return (
@@ -34,39 +35,42 @@ const Cart = () => {
       </div>
 
       <div className="flex gap-9 items-center justify-center">
-          <div className="flex flex-col  items-center justify-center border border-emerald-800 w-72 h-[110%] rounded-md gap-2 shadow-xl">
-            <div
-              className="h-64 w-full bg-contain bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${Image2})` }}
-            >
-              <div className="ml-48 bg-red-600 w-10 h-8 rounded-sm flex items-center justify-center text-white font-semibold">
-                <span>X</span>
-              </div>
-            </div>
-            <p>the happy lemon</p>
-            <input type="number" className="border border-black rounded" />
-            <button className="bg-violet-500 h-11 w-40 rounded-md font-bold flex items-center justify-center hover:bg-violet-600 transition">
-              Add to cart
+        <div className="flex flex-col  items-center justify-center border border-emerald-800 w-72 h-96 rounded-md gap-2 shadow-xl">
+          <div
+            className="h-60 w-full bg-contain bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${Image2})` }}
+          >
+            <span className="ml-48 bg-red-600 w-10 h-6.5 rounded-sm flex items-center justify-center text-white font-semibold">
+              X
+            </span>
+          </div>
+          <p className="text-xl font-semibold">Happy Lemon</p>
+          <div className="flex gap-1">
+            <input type="number" className="border border-black rounded w-20" />
+            <button className="bg-red-500 h-11 w-20 rounded-md font-bold flex items-center justify-center hover:bg-red-600 text-white">
+              update
             </button>
           </div>
+        </div>
 
-          <div className="flex flex-col  items-center justify-center border border-emerald-800 w-72 h-[110%] rounded-md gap-2 shadow-xl">
-            <div
-              className="h-64 w-full bg-contain bg-center bg-no-repeat"
-              style={{ backgroundImage: `url(${Image6})` }}
-            >
-              <div className="ml-48 bg-red-600 w-10 h-8 rounded-sm flex items-center justify-center text-white font-semibold">
-                <span>X</span>
-              </div>
-            </div>
-            <p>nightshade</p>
-            <input type="number" className="border border-black rounded" />
-            <button className="bg-violet-500 h-11 w-40 rounded-md font-bold flex items-center justify-center hover:bg-violet-600 transition">
-              Add to cart
+        <div className="flex flex-col  items-center justify-center border border-emerald-800 w-72 h-96 rounded-md gap-2 shadow-xl">
+          <div
+            className="h-60 w-full bg-contain bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${Image6})` }}
+          >
+            <span className="ml-48 bg-red-600 w-10 h-6.5 rounded-sm flex items-center justify-center text-white font-semibold">
+              X
+            </span>
+          </div>
+          <p className="text-xl font-semibold">nightshade</p>
+          <div className="flex gap-1">
+            <input type="number" className="border border-black rounded w-20" />
+            <button className="bg-red-500 h-11 w-20 rounded-md font-bold flex items-center justify-center hover:bg-red-600 text-white">
+              update
             </button>
           </div>
-
-          </div>
+        </div>
+      </div>
 
       <div className="p-8">
         <div className="w-full mx-auto p-6 flex flex-col items-center">
@@ -79,12 +83,12 @@ const Cart = () => {
               Grand total: <span className="text-orange-500">$0/-</span>
             </p>
             <div className="Flex space-x-4">
-            <button className="bg-amber-400 text-white rounded hover:bg-amber-500 w-64 h-12">
-              <Link to="/shop">Continue Shopping</Link>
-            </button>
-            <button className="bg-purple-300 text-white rounded hover:bg-purple-400 w-64 h-12">
-              <Link to="/checkout">Proceed To Checkout</Link>
-            </button>
+              <Link to="/shop"><button className="bg-amber-400 text-white rounded hover:bg-amber-500 w-64 h-12">
+                Continue Shopping
+              </button></Link>
+              <Link to="/checkout"><button className="bg-purple-300 text-white rounded hover:bg-purple-400 w-64 h-12">
+                Proceed To Checkout
+              </button></Link>
             </div>
           </div>
         </div>

@@ -1,111 +1,174 @@
-import React from "react";
-import { FaFacebookF } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-import { FaSearch } from "react-icons/fa";
-import { FaUser } from "react-icons/fa6";
-import { FaCartShopping } from "react-icons/fa6";
+import React, { useState } from "react";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedin,
+  FaSearch,
+  FaUser,
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
+import { FaXTwitter, FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <header>
-      <div className="bg-slate-300 flex flex-row items-center justify-center space-x-[63%] h-11 w-[100%]">
-        <div className="flex flex-row mt-3 space-x-1">
-          <div>
-            <Link to="https://www.facebook.com/">
-              <FaFacebookF className="size-6" />
+      <div className="bg-slate-300 flex flex-row items-center justify-between px-4 h-11 w-full">
+        <div className="flex space-x-2">
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebookF className="text-lg" />
+          </a>
+          <a
+            href="https://x.com/?lang=en"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaXTwitter className="text-lg" />
+          </a>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram className="text-lg" />
+          </a>
+          <a
+            href="https://www.linkedin.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaLinkedin className="text-lg" />
+          </a>
+        </div>
+        <div className="flex space-x-2">
+          <p className="font-semibold text-base">
+            <span className="text-purple-700">
+              <Link to="/">login |</Link>
+            </span>
+          </p>
+          <p className="text-base text-purple-700 font-semibold">
+            <Link to="/signup">signup</Link>
+          </p>
+        </div>
+      </div>
+
+      <div className="flex flex-row justify-between bg-white h-14 w-full shadow-md px-4 items-center">
+        <div className="flex items-center justify-between w-full lg:w-auto">
+          <h2>
+            <Link
+              to="/homepage"
+              className="text-purple-600 text-xl font-semibold"
+            >
+              Bookly.
             </Link>
-          </div>
-          <div>
-            <Link to="https://x.com/?lang=en">
-              <FaXTwitter className=" size-6" />
-            </Link>
-          </div>
-          <div>
-            <Link to="https://www.instagram.com/">
-              <FaInstagram className=" size-6" />
-            </Link>
-          </div>
-          <div>
-            <Link to="https://www.google.com/search?q=www.linkedin+sign+up&oq=www.lin&gs_lcrp=EgZjaHJvbWUqBwgIEAAYgAQyBggAEEUYOTIHCAEQABiABDIHCAIQABiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQABiABDIHCAcQABiABDIHCAgQABiABDIHCAkQABiABNIBCTEwNDcyajBqN6gCALACAA&sourceid=chrome&ie=UTF-8">
-              <FaLinkedin className=" size-6" />
-            </Link>
+          </h2>
+          <div className="lg:hidden">
+            <button onClick={toggleMenu} className="text-xl">
+              {menuOpen ? <FaTimes /> : <FaBars />}
+            </button>
           </div>
         </div>
-
-        <div className="flex space-x-1">
-          <div>
-            <p className="flex font-semibold text-base/9 gap-2">
-              new
-              <span className="text-purple-700">
-                <Link to="/">login |</Link>
-              </span>
-            </p>
-          </div>
-          <div>
-            <p className=" text-base/9 text-purple-700 font-semibold">
-              <Link to="/signup">signup</Link>
-            </p>
+        <nav
+          className={`${
+            menuOpen ? "block" : "hidden"
+          } lg:flex lg:items-center lg:space-x-6 w-full lg:w-auto mt-4 lg:mt-0`}
+        >
+          <ul className="flex flex-col lg:flex-row lg:space-x-6 font-bold">
+            <li className="hover:underline">
+              <Link to="/homepage">Home</Link>
+            </li>
+            <li className="hover:underline">
+              <Link to="/about">About</Link>
+            </li>
+            <li className="hover:underline">
+              <Link to="/shop">Shop</Link>
+            </li>
+            <li className="hover:underline">
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li className="hover:underline">
+              <Link to="/order">Orders</Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="hidden lg:flex items-center space-x-4">
+          <Link to="/search" className="hover:text-purple-500">
+            <FaSearch className="text-lg" />
+          </Link>
+          <Link to="" className="hover:text-purple-500">
+            <FaUser className="text-lg" />
+          </Link>
+          <div className="flex items-center space-x-1 hover:text-purple-500">
+            <Link to="/cart">
+              <FaCartShopping className="text-lg" />
+            </Link>
+            <span>(0)</span>
           </div>
         </div>
       </div>
 
-      <div className="flex flex-row justify-center bg-white h-11 w-[100%] shadow-md">
-        <div className=" flex flex-row items-center space-x-96">
-          <div>
-            <h2>
-              <Link to="" className="text-purple-600 text-xl font-semibold">
-                Bookly.
+      {/* Mobile menu */}
+      <div
+        className={`${
+          menuOpen ? "block" : "hidden"
+        } lg:hidden bg-white shadow-md px-4 py-2`}
+      >
+        <nav>
+          <ul className="flex flex-col items-start space-y-2">
+            <li className="hover:underline">
+              <Link to="/homepage" onClick={toggleMenu}>
+                Home
               </Link>
-            </h2>
-          </div>
-          <div>
-            <nav>
-              <ul className="flex flex-row space-x-3 font-bold">
-                <div className="hover:underline">
-                  <li>
-                    <Link to="/homepage">home</Link>
-                  </li>
-                </div>
-                <div className="hover:underline">
-                  <li>
-                    <Link to="/about">about</Link>
-                  </li>
-                </div>
-                <div className="hover:underline">
-                  <li>
-                    <Link to="/shop">shop</Link>
-                  </li>
-                </div>
-                <div className="hover:underline">
-                  <li>
-                    <Link to="/contact">contact</Link>
-                  </li>
-                </div>
-                <div className="hover:underline">
-                  <li>
-                    <Link to="">orders</Link>
-                  </li>
-                </div>
-              </ul>
-            </nav>
-          </div>
-          <div className="flex flex-row space-x-3">
-            <div className="hover:text-purple-500">
-              <Link to="/search">
-                <FaSearch className=" size-6" />
+            </li>
+            <li className="hover:underline">
+              <Link to="/about" onClick={toggleMenu}>
+                About
               </Link>
-            </div>
-            <div className="hover:text-purple-500">
-                <Link to="">
-                  <FaUser className=" size-6" />
-                </Link>
-            </div>
-            <div className="flex flex-row hover:text-purple-500">
-                <Link to="/cart"><FaCartShopping className=" size-6 flex" /></Link><h1>(0)</h1>
-            </div>
+            </li>
+            <li className="hover:underline">
+              <Link to="/shop" onClick={toggleMenu}>
+                Shop
+              </Link>
+            </li>
+            <li className="hover:underline">
+              <Link to="/contact" onClick={toggleMenu}>
+                Contact
+              </Link>
+            </li>
+            <li className="hover:underline">
+              <Link to="/order" onClick={toggleMenu}>
+                Orders
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <div className="flex space-x-2">
+          <div className="">
+            <Link to="/search">
+              <FaSearch className="text-lg flex items-center hover:text-purple-500" />
+            </Link>
+          </div>
+          <div className="">
+            <Link to="">
+              <FaUser className="text-lg flex items-center hover:text-purple-500" />
+            </Link>
+          </div>
+          <div className="flex">
+            <Link to="/cart">
+              <FaCartShopping className="text-lg flex items-center hover:text-purple-500" />
+            <p>(0)</p>
+            </Link>
           </div>
         </div>
       </div>
